@@ -15,27 +15,29 @@ describe Trail, type: :model do
     it { should have_many(:trips).through(:trip_trails) }
   end
 
+  before :each do
+    @trip = create(:trip)
+    @trails = [300, 175, 200, 150].map do |length|
+      create(:trail, length: length)
+    end
+    @trip.trails << @trails
+  end
+
   describe "methods" do
     it ".total_distance" do
-      trip = create(:trip)
-      trip.trails << [150, 175, 200, 300].map do |length|
-        create(:trail, length: length)
-      end
-
-      expect(trip.trails.total_distance).to eq(825)
-
-      DatabaseCleaner.clean
+      expect(@trip.trails.total_distance).to eq(825)
     end
 
     it ".average_distance" do
-      trip = create(:trip)
-      trip.trails << [150, 175, 200, 300].map do |length|
-        create(:trail, length: length)
-      end
+      expect(@trip.trails.average_distance).to eq(206.25)
+    end
 
-      expect(trip.trails.average_distance).to eq(206.25)
+    it ".longest_trail" do
+      expect(@trip.trails.longest_trail).to eq(@trails.first)
+    end
 
-      DatabaseCleaner.clean
+    it ".shortest_trail" do
+      expect(@trip.trails.shortest_trail).to eq(@trails.last)
     end
   end
 end
