@@ -1,0 +1,7 @@
+<%= tag.h1 "#{@trail.name} (#{@trail.address})" %>
+<%= tag.p "#{@trail.name} was included in #{@trail.trips.size} trips:" %>
+<% @trail.trips.each do |trip| %>
+<section class="trip-<%= trip.id %>">
+  <%= "#{trip.name} (Total Length: #{trip.trails.total_distance})" %>
+</section>
+<% end %>
