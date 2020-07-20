@@ -12,4 +12,12 @@ class Trail < ApplicationRecord
   def self.average_distance
     self.average(:length)
   end
+
+  def self.longest_trail
+    self.order(:length).last
+  end
+
+  def self.shortest_trail
+    self.order(:length).first
+  end
 end
