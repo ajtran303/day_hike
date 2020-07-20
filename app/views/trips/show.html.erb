@@ -8,3 +8,9 @@
   </ul>
 </section>
 <% end %>
+<section class="statistics">
+  <%= tag.h3 "Total hiking distance: #{@trip.trails.total_distance}" %>
+  <%= tag.h3 "Average hiking distance: #{@trip.trails.average_distance}" %>
+  <%= tag.h3 "Longest Trail on Trip: #{@trip.trails.longest_trail.name} (#{@trip.trails.longest_trail.length})" %>
+  <%= tag.h3 "Shortest Trail on Trip: #{@trip.trails.shortest_trail.name} (#{@trip.trails.shortest_trail.length})" %>
+</section>
