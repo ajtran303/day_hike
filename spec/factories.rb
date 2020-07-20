@@ -6,6 +6,6 @@ FactoryBot.define do
   end
 
   factory :trip, class: Trip do
-    name { "A Trip" }
+    sequence(:name) { |n| "Trip #{n}" }
   end
 end
