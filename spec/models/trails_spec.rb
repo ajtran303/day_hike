@@ -26,5 +26,16 @@ describe Trail, type: :model do
 
       DatabaseCleaner.clean
     end
+
+    it ".average_distance" do
+      trip = create(:trip)
+      trip.trails << [150, 175, 200, 300].map do |length|
+        create(:trail, length: length)
+      end
+
+      expect(trip.trails.average_distance).to eq(206.25)
+
+      DatabaseCleaner.clean
+    end
   end
 end
