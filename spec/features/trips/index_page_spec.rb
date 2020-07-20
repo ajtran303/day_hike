@@ -3,6 +3,9 @@ require "rails_helper"
 RSpec.describe "Hiking Index Page Spec" do
   before :each do
     @trips = create_list(:trip, 4)
+    @trips.each do |trip|
+      trip.trails << create_list(:trail, 4)
+    end
   end
 
   describe "As a visitor" do
