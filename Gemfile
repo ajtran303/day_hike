@@ -8,7 +8,7 @@ end
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.6'
-gem 'sass-rails', '~> 5.0'
+# gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'coffee-rails', '~> 4.2'
@@ -22,6 +22,7 @@ group :development, :test do
   gem 'pry'
   gem 'launchy'
   gem 'simplecov', require: false, group: :test
+  gem 'factory_bot_rails'
 end
 
 group :development do
