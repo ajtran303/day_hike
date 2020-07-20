@@ -41,17 +41,8 @@ RSpec.describe "Trip Show Page Spec" do
           expect(page).to have_content("Total hiking distance: #{total_distance}")
           expect(page).to have_content("Average hiking distance: #{average_distance}")
 
-          within ".longest-trail" do
-            expect(page).to have_content("Longest Trail on Trip:")
-            expect(page).to have_content("Name: #{longest_trail.name}")
-            expect(page).to have_content("Length: #{longest_trail.length}")
-          end
-
-          within ".shortest-trail" do
-            expect(page).to have_content("Shortest Trail on Trip:")
-            expect(page).to have_content("Name: #{shortest_trail.name}")
-            expect(page).to have_content("Length: #{shortest_trail.length}")
-          end
+          expect(page).to have_content("Longest Trail on Trip: #{longest_trail.name} (#{longest_trail.length})")
+          expect(page).to have_content("Shortest Trail on Trip: #{shortest_trail.name} (#{shortest_trail.length})")
         end
       end
     end
