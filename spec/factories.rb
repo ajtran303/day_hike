@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :trail, class: Trail do
-    name { "A Trail" }
-    address { "Over There!" }
+    sequence(:name) { |n| "Trail #{n}" }
+    address { "It's Over There!" }
     length { 100 }
   end
 
